@@ -102,16 +102,49 @@ const btnRunaway = document.getElementById("btn-runaway");
 const btnStay = document.getElementById("btn-stay");
 
 if (btnRunaway) {
-  btnRunaway.addEventListener("mouseover", function () {
-    const randomX = Math.floor(Math.random() * 300) - 150;
-    const randomY = Math.floor(Math.random() * 100) - 50;
-    this.style.transform = `translate(${randomX}px, ${randomY}px)`;
-  });
+  const formCard = btnRunaway.closest(".form-card");
+
+  const moveRunawayButton = function () {
+    if (!formCard) return;
+
+    const bounds = formCard.getBoundingClientRect();
+    const maxX = Math.max(20, bounds.width - btnRunaway.offsetWidth - 20);
+    const maxY = Math.max(20, bounds.height - btnRunaway.offsetHeight - 20);
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    btnRunaway.style.transform = `translate(${randomX > bounds.width / 2 ? -randomX / 2 : randomX / 2}px, ${randomY > bounds.height / 2 ? -randomY / 2 : randomY / 2}px)`;
+  };
+
+  btnRunaway.addEventListener("mouseover", moveRunawayButton);
+  btnRunaway.addEventListener("focus", moveRunawayButton);
+  btnRunaway.addEventListener("touchstart", moveRunawayButton, { passive: true });
 }
 
 if (btnStay) {
+  const formPopup = document.getElementById("form-popup");
+  let popupTimer = null;
+
+  const showPopup = (message) => {
+    if (!formPopup) return;
+
+    const popupText = formPopup.querySelector(".popup-text");
+    if (popupText) {
+      popupText.textContent = message;
+    }
+
+    formPopup.classList.remove("show");
+    void formPopup.offsetWidth;
+    formPopup.classList.add("show");
+
+    if (popupTimer) clearTimeout(popupTimer);
+    popupTimer = setTimeout(() => {
+      formPopup.classList.remove("show");
+    }, 2800);
+  };
+
   btnStay.addEventListener("click", () => {
-    alert("Keputusan yang sangat bijak, Bu Sekre. Mari kita lanjut kerjain Bab 4! 😌🤝");
+    showPopup("Keputusan yang sangat bijak, Bu Sekre. Jadi kita gak jadi asing wkwk");
   });
 }
 
@@ -124,8 +157,13 @@ function openGift(element) {
   const voucherText = document.getElementById("voucher-text");
   const rewardInstruction = document.getElementById("reward-instruction");
 
+  if (element) element.classList.add("is-open");
   if (giftsWrapper) giftsWrapper.style.display = "none";
-  if (rewardInstruction) rewardInstruction.style.display = "none";
+  if (rewardInstruction) {
+    rewardInstruction.textContent = "Voucher kamu sudah siap!";
+    rewardInstruction.style.color = "#10b981";
+    rewardInstruction.style.fontWeight = "800";
+  }
 
   const randomReward = vouchers[Math.floor(Math.random() * vouchers.length)];
 

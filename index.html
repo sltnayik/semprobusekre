@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selamat Sempro, Bu Sekre</title>
+    <title>Happy Semprotulation, Bu Sekre</title>
     <!-- Font lucu dengan ujung bulat -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
@@ -68,7 +68,7 @@
             </div>
             <!-- Polaroid 3 -->
             <div class="polaroid" style="--rot: -2deg; --delay: 0.5s">
-              <img src="assets/foto4.jpg" alt="Momen 3" />
+              <img src="assets/foto3.jpg" alt="Momen 3" />
               <p class="caption">iniiii ........</p>
             </div>
           </div>
@@ -111,7 +111,11 @@
         <!-- Gambar Stitch Ketawa / Mengejek -->
         <img src="assets/stitch.png" alt="Stitch Jahil" class="stitch-form" />
 
-        <p class="form-desc">Silakan isi form ini jika Anda (Bu Sekre) memaksa ingin menjauh dari Kordes.</p>
+        <p class="form-desc" id="form-status">Silakan isi form ini jika Anda (Bu Sekre) memaksa ingin menjauh dari Kordes.</p>
+        <div id="form-popup" class="form-popup" aria-live="polite" role="status">
+          <span class="popup-badge">✨</span>
+          <span class="popup-text">Keputusan yang sangat bijak, Bu Sekre. Kita gak jadi asing wkwk</span>
+        </div>
 
         <div class="input-group">
           <label>Nama Lengkap:</label>
@@ -124,15 +128,15 @@
         </div>
 
         <div class="form-actions">
-          <button id="btn-runaway" class="btn-cute btn-danger">Kirim Pengajuan</button>
-          <button id="btn-stay" class="btn-cute btn-safe">Gak Jadi Deh ✌️</button>
+          <button id="btn-runaway" class="btn-cute btn-danger" aria-label="Kirim pengajuan menjauh">Kirim Pengajuan</button>
+          <button id="btn-stay" class="btn-cute btn-safe" aria-label="Batalkan pengajuan menjauh">Gak Jadi Deh ✌️</button>
         </div>
       </div>
     </div>
 
     <!-- SECTION KLAIM REWARD -->
     <div class="reward-container">
-      <h2 class="section-title">Klaim Reward Sempro! 🎁</h2>
+      <h2 class="section-title">Klaim Hadiah Sempro! 🎁</h2>
       <div class="cute-card reward-card">
         <p class="reward-desc" id="reward-instruction">Pilih satu kado dibawah buat hadiah Sempromu!</p>
 
@@ -155,14 +159,14 @@
         </div>
 
         <!-- Hasil Voucher (Awalnya Disembunyikan) -->
-        <div id="voucher-result" class="hidden-voucher">
+        <div id="voucher-result" class="hidden-voucher" aria-live="polite" role="status">
           <img src="assets/stitch.png" alt="Stitch Senang" class="stitch-voucher" />
           <h3 class="voucher-title">Selamat! Kamu dapat:</h3>
           <div class="voucher-ticket">
             <span id="voucher-text">Voucher Kopi Susu</span>
           </div>
           <p class="voucher-action">
-            Screenshot *voucher* ini dan kirim ke WA  Pak Kordes buat diklaim! <br />
+            Screenshot *voucher* ini dan kirim ke WA Pak Kordes buat diklaim! <br />
             <strong>(Masa berlaku: Sampai Urusan Bab 5 Kelar)</strong>
           </p>
         </div>

@@ -367,7 +367,9 @@ body::after {
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
-    filter 0.25s ease;
+    filter 0.25s ease,
+    opacity 0.2s ease;
+  will-change: transform, box-shadow, filter;
 }
 
 .btn-cute:hover {
@@ -378,6 +380,19 @@ body::after {
 
 .btn-cute:active {
   transform: translateY(0) scale(0.98);
+}
+
+.btn-cute:focus-visible,
+.gift-box:focus-visible,
+.input-group input:focus-visible,
+.input-group textarea:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35);
+  outline-offset: 3px;
+}
+
+.form-desc.is-success {
+  color: var(--success);
+  font-weight: 800;
 }
 
 .hidden-section {
@@ -561,6 +576,11 @@ body::after {
     font-size: 1.8rem;
   }
 
+  .message {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
   .special-card {
     padding: 40px 20px 20px !important;
   }
@@ -576,6 +596,34 @@ body::after {
 
   .rope {
     display: none;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-cute {
+    width: 100%;
+  }
+
+  .gift-box {
+    width: 96px;
+    padding: 16px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -604,6 +652,112 @@ body::after {
   margin-bottom: 20px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.form-popup {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(90%, 440px);
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.98), rgba(34, 197, 94, 0.92), rgba(59, 130, 246, 0.9));
+  box-shadow:
+    0 22px 40px rgba(16, 185, 129, 0.28),
+    0 0 0 8px rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+  transform: translate(-50%, 18px) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+  overflow: hidden;
+}
+
+.form-popup::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto auto -18%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  filter: blur(10px);
+}
+
+.form-popup::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -18px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0) scale(1);
+  animation: popup-bounce 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes popup-bounce {
+  0% {
+    transform: translate(-50%, 18px) scale(0.8);
+  }
+  60% {
+    transform: translate(-50%, -6px) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.popup-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+  font-size: 1.1rem;
+  animation: badge-pulse 1.4s ease-in-out infinite alternate;
+}
+
+.popup-text {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes badge-pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15) rotate(8deg);
+  }
 }
 
 .input-group {
@@ -694,13 +848,24 @@ body::after {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .gift-box:hover {
   transform: translateY(-10px) scale(1.05);
   background: linear-gradient(180deg, #dbeafe, #eff6ff);
   box-shadow: 0 14px 26px rgba(37, 99, 235, 0.15);
+}
+
+.gift-box:active {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.gift-box.is-open {
+  border-color: #34d399;
+  background: linear-gradient(180deg, #ecfdf5, #eff6ff);
 }
 
 .gift-icon {
