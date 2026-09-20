@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Sempro, Bu Sekre</title>
+    <!-- Font lucu dengan ujung bulat -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Canvas untuk efek Confetti Bulat / Gelembung -->
+    <canvas id="confetti"></canvas>
+
+    <div class="floating-decor decor-heart decor-heart-1">💖</div>
+    <div class="floating-decor decor-heart decor-heart-2">💗</div>
+    <div class="floating-decor decor-star decor-star-1">✨</div>
+    <div class="floating-decor decor-star decor-star-2">🌟</div>
+
+    <!-- Hiasan Background (Awan Lucu) -->
+    <div class="cloud cloud-1">☁️</div>
+    <div class="cloud cloud-2">☁️</div>
+    <div class="cloud cloud-3">☁️</div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="fullscreen-section">
+      <div class="cute-card">
+        <!-- Gambar Stitch (Anda bisa mengganti link ini dengan file PNG Stitch transparan milik Anda sendiri) -->
+        <img src="assets/stitch.png" alt="Stitch Lucu Mengintip" class="stitch-mascot" />
+
+        <div class="profile-container">
+          <!-- Ganti src dengan foto Niswati -->
+          <img src="assets/hero.jpg" alt="Niswati Nur Latifah" class="profile-img" />
+          <div class="sparkle sparkle-1">✨</div>
+          <div class="sparkle sparkle-2">✨</div>
+        </div>
+
+        <p class="subtitle">Happy Semprotulation 🎉</p>
+
+        <h1 class="title"><span id="typing-text"></span><span class="cursor">|</span></h1>
+
+        <p class="message">Selamat yaa bu sekre, udah selangkah lebih dekat menuju S.Kep. Semangat terus revisiannya, kamu pasti bisa! Sun jauh dulu sini 💙</p>
+
+        <button id="btn-next" class="btn-cute">Buka Kado Spesial 🎁</button>
+      </div>
+    </section>
+
+    <!-- Section Konten Utama (Galeri & Pesan) -->
+    <section id="special-content" class="hidden-section">
+      <!-- Bagian Galeri Polaroid -->
+      <div class="gallery-container">
+        <!-- Hiasan Stitch Menarik Tali -->
+
+        <h2 class="section-title">Nih kumpulan pap imutmu 📸</h2>
+        <div class="rope-container">
+          <div class="rope"></div>
+
+          <div class="polaroids">
+            <!-- Polaroid 1 -->
+            <div class="polaroid" style="--rot: -4deg; --delay: 0.1s">
+              <img src="assets/foto1.jpg" alt="Momen 1" />
+              <p class="caption">ini ntuuut</p>
+            </div>
+            <!-- Polaroid 2 -->
+            <div class="polaroid" style="--rot: 3deg; --delay: 0.3s">
+              <img src="assets/foto2.jpg" alt="Momen 2" />
+              <p class="caption">ini mbuuut</p>
+            </div>
+            <!-- Polaroid 3 -->
+            <div class="polaroid" style="--rot: -2deg; --delay: 0.5s">
+              <img src="assets/foto4.jpg" alt="Momen 3" />
+              <p class="caption">iniiii ........</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian Papan Ucapan Awan -->
+      <div class="wish-container">
+        <h2 class="section-title">Pesan Spesial dari Pak Kordes 💌</h2>
+
+        <div class="clouds-wrapper single-cloud">
+          <div class="cloud-card special-card" style="--delay: 0.2s">
+            <!-- Stitch nangkring di tengah atas kartu -->
+            <img src="assets/stitch.png" alt="Stitch Love" class="stitch-center" />
+
+            <p class="wish-text">
+              "Akhirnya selesai juga sempronya wkwk. Selamat yaa 🤍 Aku ikut seneng lihat kamu bisa sampai di tahap ini. Kalau dipikir-pikir lucu juga ya, awalnya kita cuma kenal karena KKN, aku kordes dan kamu sekretaris. Dari yang awalnya
+              cuma sering bahas urusan KKN, malah jadi sering ngobrol, bercanda, chatan, telfonan, dan akhirnya bisa sedekat ini.
+
+              <br />Aku tahu selama prosesnya pasti ada capek, bingung, dan hal-hal yang bikin kepikiran. Tapi kamu berhasil lewatin salah satu tahap pentingnya. Semoga setelah ini revisinya lancar, nggak bikin pusing banget wkwk, dan
+              skripsinya bisa segera selesai. Aku bakal ikut seneng kalau nanti bisa lihat kamu sampai wisuda.
+
+              <br />Makasih juga ya, selama beberapa bulan ini kamu sudah jadi orang yang sering nemenin aku, bercanda, ngobrol. Gak nyangka dari KKN malah bisa dapat calon jodoh gini 😭😂 Dan mungkin aku juga mau jujur sedikit.
+
+              <br />Aku tahu sekarang kita lagi ada masalah, dan kamu sempat kepikiran buat pergi dan jadi asing. Aku gak mau maksa kamu buat tetap di sini. Aku cuma mau kamu tahu kalo aku sebenarnya gak mau kehilangan kamu. Aku udah
+              terbiasa ada kamu, jadi kalo tiba-tiba harus asing rasanya pasti gak gampang.
+
+              <br />Sekali lagi, selamat yaa buat sempronya. Kamu udah lewatin satu tahap lagi. Sekarang boleh lega dikit, tapi jangan terlalu lama santainya 😭😂 "
+            </p>
+            <span class="sender">- Dari aku yang suka bad mood gajelas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION FORMULIR JAHIL (ANTI-GHOSTING) -->
+    <div class="form-container">
+      <h2 class="section-title">Formulir Pengajuan Menjauh 📝</h2>
+      <div class="cute-card form-card">
+        <!-- Gambar Stitch Ketawa / Mengejek -->
+        <img src="assets/stitch.png" alt="Stitch Jahil" class="stitch-form" />
+
+        <p class="form-desc">Silakan isi form ini jika Anda (Bu Sekre) memaksa ingin menjauh dari Kordes.</p>
+
+        <div class="input-group">
+          <label>Nama Lengkap:</label>
+          <input type="text" value="Niswati Nur Latifah" readonly />
+        </div>
+
+        <div class="input-group">
+          <label>Alasan Menghilang:</label>
+          <textarea placeholder="Tulis alasanmu di sini..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button id="btn-runaway" class="btn-cute btn-danger">Kirim Pengajuan</button>
+          <button id="btn-stay" class="btn-cute btn-safe">Gak Jadi Deh ✌️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION KLAIM REWARD -->
+    <div class="reward-container">
+      <h2 class="section-title">Klaim Reward Sempro! 🎁</h2>
+      <div class="cute-card reward-card">
+        <p class="reward-desc" id="reward-instruction">Pilih satu kado dibawah buat hadiah Sempromu!</p>
+
+        <div class="gifts-wrapper" id="gifts-wrapper">
+          <!-- Kado 1 -->
+          <div class="gift-box" onclick="openGift(this)">
+            <span class="gift-icon">🎁</span>
+            <p>Kado 1</p>
+          </div>
+          <!-- Kado 2 -->
+          <div class="gift-box" onclick="openGift(this)">
+            <span class="gift-icon">🎁</span>
+            <p>Kado 2</p>
+          </div>
+          <!-- Kado 3 -->
+          <div class="gift-box" onclick="openGift(this)">
+            <span class="gift-icon">🎁</span>
+            <p>Kado 3</p>
+          </div>
+        </div>
+
+        <!-- Hasil Voucher (Awalnya Disembunyikan) -->
+        <div id="voucher-result" class="hidden-voucher">
+          <img src="assets/stitch.png" alt="Stitch Senang" class="stitch-voucher" />
+          <h3 class="voucher-title">Selamat! Kamu dapat:</h3>
+          <div class="voucher-ticket">
+            <span id="voucher-text">Voucher Kopi Susu</span>
+          </div>
+          <p class="voucher-action">
+            Screenshot *voucher* ini dan kirim ke WA  Pak Kordes buat diklaim! <br />
+            <strong>(Masa berlaku: Sampai Urusan Bab 5 Kelar)</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
