@@ -1,5 +1,5 @@
 // --- 1. Efek Mengetik (Typing Effect) ---
-const text = "Niswati Nur Latifah";
+const text = "Niswati Nur Lathifah";
 const typingTextElement = document.getElementById("typing-text");
 let charIndex = 0;
 
